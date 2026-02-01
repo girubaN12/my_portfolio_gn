@@ -5,13 +5,13 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import heroImage from '../assets/images/hero-img.png';
 import '../index.css';
 
+const titles = ['Front-End Developer', 'Web Developer']; // titles to loop
+
 function Hero() {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
-
-  const titles = ['Front-End Developer', 'Web Developer']; // titles to loop
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -40,7 +40,7 @@ function Hero() {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, typingSpeed, loopNum, titles]);
+  }, [text, isDeleting, typingSpeed, loopNum]);
 
   return (
     <section className="hero d-flex align-items-center text-light" id="home">
